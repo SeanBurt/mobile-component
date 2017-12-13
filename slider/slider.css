@@ -1,0 +1,24 @@
+.slider {}
+
+.slider-indicator {
+	height: 40px;
+	background-color: #eee;
+}
+
+.slider-indicator-item {
+	display: inline-block;
+	text-align: center;
+	height: 100%;
+	line-height: 40px;
+}
+.slider-active {
+	color: #007aff;
+}
+
+.slider-bar {
+	height: 2px;
+	background-color: #007aff;
+}
+
+.slider-content {}
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--优先使用 IE 最新版本和 Chrome-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<!--360使用Google Chrome Frame-->
+		<meta name="renderer" content="webkit">
+		<!--百度禁止转码-->
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<!--页面关键词-->
+		<meta name="keywords" content="your keywords">
+		<!--页面描述内容-->
+		<meta name="description" content="your description">
+		<!--定义网页作者-->
+		<meta name="author" content="author,email address">
+		<!--定义网页搜索引擎索引方式-->
+		<meta name="robots" content="index,follow">
+		<!--让布局在移动浏览器上显示的更好-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<!-- 是否启用 WebApp 全屏模式 -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!--禁止数字识自动别为电话号码；Android中禁止自动识别页面中的邮件地址，iOS中不会自动识别邮件地址-->
+		<meta name="format-detection" content="telephone=no,email=no">
+		<title>Modal</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			body,
+			button,
+			input,
+			pre,
+			select,
+			textarea {
+				font-size: 14px;
+				font-family: "Droid Sans", "Droid Sans Fallback", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+			}
+			
+			body,
+			div,
+			p {
+				margin: 0;
+				padding: 0;
+				outline: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section>
+			<ul>
+				<li>a</li>
+				<li>a</li>
+				<li>a</li>
+				<li>a</li>
+				<li>a</li>
+				<li>a</li>
+			</ul>
+			<button onclick="modalShow();">Click Me</button>
+		</section>
+		<div class="modal fade" id="mymodal" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">模态弹出窗标题</h4>
+					</div>
+					<div class="modal-body">
+						<p>模态弹出窗主体内容</p>
+					</div>
+					<div class="modal-footer">
+						<p>模态弹出窗底部内容</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/zepto-min-1.2.0.js"></script>
+		<script>
+			let mymodal = $('#mymodal').modal();
+
+			function modalShow() {
+				mymodal.show();
+			}
+		</script>
+	</body>
+
+</html>
+

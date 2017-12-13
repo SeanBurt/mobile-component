@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <title>gallery</title>
+  <link rel="stylesheet" href="css/imgbox.css">
+  <style>
+    .gallery {
+      display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */ 
+      display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */ 
+      display: -ms-flexbox; /* TWEENER - IE 10 */ 
+      display: -webkit-flex; /* NEW - Chrome */ 
+      display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      flex-wrap: wrap;
+    }
+    .gallery-item {
+      flex: 1;
+      text-align: center;
+    }
+    .gallery-item-content {
+      width: 115px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery">
+    <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
+    <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
+    <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
+    <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
+    <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
+    <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
+    <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
+    <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
+    <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
+  </div>
+  <div class="imgbox">
+    <div class="ib-mask"></div>
+    <div class="ib-wrap">
+      <div class="ib-bar">
+        <div class="ib-counter">4 / 5</div>
+        <button class="ib-close">╳</button>
+      </div>
+      <div class="ib-container">
+      </div>
+      <div class="ib-caption"></div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+  <script type="text/javascript" src="js/imgbox.js"></script>
+  <script>
+    $('.imgbox').imgbox({
+      index:8,
+      imgs:['img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg']
+    ,articles:['11111111111111111111111','222222222222222222222','3333333333333333333333','4444444444444444444','5555','666','777777','88888888']}).show()
+  </script>
+</body>
+</html>

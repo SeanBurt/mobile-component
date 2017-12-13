@@ -1,0 +1,139 @@
+.citys{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.city {
+  flex-shrink: 1;
+  flex-basis: auto;
+  flex-grow: 20;
+  width: 92%;
+}
+.bar-nav~.content {
+  top: 88px;
+}
+.city{
+  .city-current{
+    width: 92%;
+    display: flex;
+  }
+  .city-current>p{
+    height: 90px;
+    line-height: 90px;
+    text-indent: 34px;
+    font-size: 24px;
+    display: flex;
+    flex:1;
+  }
+  .city-current>p>b{
+    font-weight: normal;
+    font-size: 26px;
+  }
+  .city-current>a{
+    line-height: 80px;
+    color:#dc5856;
+    text-decoration: underline;
+  }
+  .city-history{
+
+  }
+  .city-history-tag{
+    height: 64px;
+    background-color: #f0f0f0;
+    line-height: 64px;
+    text-indent: 32px;
+    font-size: 30px;
+    color: #515151;
+    width: 96%;
+    border-top: 1px solid #c3c3c3;
+  }
+  .city-history-items{
+    padding: 20px;
+    width: 90%;
+  }
+  .city-history-item{
+    width: 145px;
+    height: 60px;
+    background-color: #dcdcdc;
+    display: inline-block;
+    font-size: 28px;
+    color: #797979;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 60px;
+    margin-left: 14px;
+  }
+  .city-list>ul{
+    width: 96%;
+  }
+  .city-list>ul>li>div>hr{
+    width: 90%;
+    margin-left: 40px;
+  }
+  .city-list>ul>li>div:last-child>hr{
+    border: none;
+  }
+  .picker-box dt{
+    height: 64px;
+    background-color: #f0f0f0;
+    line-height: 64px;
+    font-size: 30px;
+    text-indent: 40px;
+    border-top: 1px solid #c3c3c3;
+  }
+  .picker-box dd{
+    height: 80px;
+    font-size: 28px;
+    line-height: 80px;
+    text-indent: 40px;
+  }
+}
+
+.city-letter {
+}
+.city-letter span{
+  font-size: 26px;
+  color: #dc5856;
+  display: inline-block;
+  margin: 30px 0 10px -15px;
+}
+.city-letter li{
+  margin-bottom: 22px;
+  font-size:26px;
+  color:#dc5856;
+}
+.title{
+  color:white;
+  font-size: 40px;
+  line-height: 88px;
+  font-family: "微软雅黑";
+}
+.city-letter{
+
+}
+.city-list {
+  -webkit-user-select: none;
+}
+
+.city-list dt {
+  height: 64px;
+  background-color: #f0f0f0;
+  line-height: 64px;
+  font-size: 30px;
+  text-indent: 40px;
+  border-top: 1px solid #c3c3c3;
+}
+
+.city-list dd {
+  height: 80px;
+  font-size: 28px;
+  line-height: 80px;
+  text-indent: 40px;
+  border-bottom: 1px solid #DCDCDC;
+}
+.city-picker li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #dbdbdb;
+}
