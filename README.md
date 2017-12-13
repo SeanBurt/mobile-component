@@ -1,2 +1,2 @@
-# mobile-componet
+# mobile-component
 some mobile components
