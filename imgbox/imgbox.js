@@ -33,7 +33,8 @@
       }
       $('.ib-container').append(htm);
     },
-    show: function() {
+    show: function(index) {
+      this.opts.index = index;
       $('.ib-mask').css('opacity','1');
       this.$ele.show();
       this.resetIndicator();
@@ -42,9 +43,10 @@
     bind: function() {
       var _self = this;
       $('.ib-close').click(function() {
-        _self.destroy();
-        _self.$ele.hide();
+        _self.$ele.css('opacity','0');
         $('.ib-mask').css('opacity','0');
+        $('.ib-item').attr('style','');
+        _self.$ele.hide();
       })
       //绑定滑动
       if(!!this.touch) {
@@ -205,4 +207,3 @@
     return new ImgBox(opts, this)
   }
 })(window, document, Zepto || JQuery)
-

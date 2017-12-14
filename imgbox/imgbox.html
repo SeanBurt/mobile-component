@@ -50,12 +50,15 @@
     </div>
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+  <script type="text/javascript" src="js/zepto-fx.js"></script>
   <script type="text/javascript" src="js/imgbox.js"></script>
   <script>
-    $('.imgbox').imgbox({
-      index:8,
+    var imgbox = $('.imgbox').imgbox({
       imgs:['img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg']
-    ,articles:['11111111111111111111111','222222222222222222222','3333333333333333333333','4444444444444444444','5555','666','777777','88888888']}).show()
+    ,articles:['11111111111111111111111','222222222222222222222','3333333333333333333333','4444444444444444444','5555','666','777777','88888888']})
+    $('.gallery-item').click(function(){
+      imgbox.show(2)
+    })
   </script>
 </body>
 </html>
