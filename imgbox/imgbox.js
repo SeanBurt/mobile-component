@@ -17,7 +17,6 @@
 
   ImgBox.prototype = {
     constructor: ImgBox,
-    touch: ('ontouchstart' in win) || win.DocumentTouch && doc instanceof DocumentTouch,
     touchDirection: 0,//滑动方向：1右 2左 3下 4上
     xOffset: 0,//横向偏移距离
     yOffset: 0,//纵向偏移距离
@@ -43,26 +42,23 @@
     bind: function() {
       var _self = this;
       $('.ib-close').click(function() {
-        _self.$ele.css('opacity','0');
+        // _self.$ele.css('opacity','0');
         $('.ib-mask').css('opacity','0');
         $('.ib-item').attr('style','');
         _self.$ele.hide();
       })
       //绑定滑动
-      if(!!this.touch) {
-				$('.ib-container').on('touchstart',function(e){
-          _self.handleTouch(e,_self);
-        }).on('touchmove',function(e){
-          _self.handleTouch(e,_self);
-        }).on('touchend',function(e){
-          _self.handleTouch(e,_self);
-        });
-			}
+      $('.ib-container').on('touchstart', function (e) {
+        _self.handleTouch(e, _self);
+      }).on('touchmove', function (e) {
+        _self.handleTouch(e, _self);
+      }).on('touchend', function (e) {
+        _self.handleTouch(e, _self);
+      });
     },
     //重置显示内容
     resetView: function() {
-      this.xOffset = $(doc).width();
-      this.yOffset = ($(win).height()-$('.ib-item-content').height()) / 2;
+      this.xOffset = $(doc).width(); 
       this.imgsPos = []
       var selector = '.ib-item:nth-child('
 
@@ -80,11 +76,29 @@
           z: 0
         })
       }
+
+      var winHeight = $(win).height()
+      var indicatorHeight = $('.ib-bar').height()
+      var captionHeight = $('.ib-caption').height()
+      var contentHeight = winHeight-indicatorHeight-captionHeight
+      var imgHeight = 0
+      var tmpImg =  null
+      
       for(var k=0;k<this.opts.imgs.length;k++) {
-        $('.ib-container').children(selector + (k+1) + ')').css({'transform':'translate3d('+ this.imgsPos[k].x +'px, '+ this.yOffset +'px, 0)'})
+        tmpImg = $('.ib-container').children(selector + (k+1) + ')')
+        //图片高度>=(窗体高度-指示器高度-文字描述高度)时图片进行等高比缩放
+        imgHeight = tmpImg.children().height()
+        if(imgHeight >= contentHeight) {
+          this.imgsPos[k].y = indicatorHeight
+          tmpImg.children().css('width','86%')
+        }else {
+          this.imgsPos[k].y = (winHeight-imgHeight) / 2;
+        }
+
+        tmpImg.css({'transform':'translate3d('+ this.imgsPos[k].x +'px, '+ this.imgsPos[k].y +'px, 0)'})
       }    
       
-      $('.ib-caption').text(this.opts.articles[this.opts.index-1]);
+      this.opts.articles && this.opts.articles.length && $('.ib-caption').text(this.opts.articles[this.opts.index-1]);
     },
     //切换显示内容
     changeView: function(direction) {
@@ -115,11 +129,11 @@
           this.imgsPos[0].x -= offset;
           return;
         }
-        $('.ib-container').children(selector + (i+1) + ')').css({'transform':'translate3d('+ this.imgsPos[i].x +'px, '+ this.yOffset +'px, 0)','transition':'transform 300ms ease'})
+        $('.ib-container').children(selector + (i+1) + ')').css({'transform':'translate3d('+ this.imgsPos[i].x +'px, '+ this.imgsPos[i].y +'px, 0)','transition':'transform 300ms ease'})
       }
       this.opts.index += tmpIndex;
       this.changeIndicator(this.opts.index);
-      this.opts.articles.length && $('.ib-caption').text(this.opts.articles[this.opts.index-1]);
+      this.opts.articles && this.opts.articles.length && $('.ib-caption').text(this.opts.articles[this.opts.index-1]);
     },
     //重置指示器
     resetIndicator: function() {

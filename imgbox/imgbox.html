@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta http-equiv="Cache-Control" content="no-cache">
   <title>gallery</title>
+  <link rel="stylesheet" href="css/teld-components_rem.min.css">
   <link rel="stylesheet" href="css/imgbox.css">
   <style>
     .gallery {
@@ -26,6 +27,7 @@
   </style>
 </head>
 <body>
+  <div class="content">
   <div class="gallery">
     <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
     <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
@@ -37,11 +39,13 @@
     <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
     <a href="javascript:;" class="gallery-item"><img class="gallery-item-content" src="img/beijing.jpg" alt="gallery"></a>
   </div>
+  <div><a id="tel" href="tel:18866668888">call me</a></div>
+</div>
   <div class="imgbox">
     <div class="ib-mask"></div>
     <div class="ib-wrap">
       <div class="ib-bar">
-        <div class="ib-counter">4 / 5</div>
+        <div class="ib-counter"></div>
         <button class="ib-close">╳</button>
       </div>
       <div class="ib-container">
@@ -49,15 +53,19 @@
       <div class="ib-caption"></div>
     </div>
   </div>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
-  <script type="text/javascript" src="js/zepto-fx.js"></script>
+  <script type="text/javascript" src="js/zepto.min.js"></script>
+  <script type="text/javascript" src="js/teld-mobile-components.min.js"></script>
   <script type="text/javascript" src="js/imgbox.js"></script>
   <script>
     var imgbox = $('.imgbox').imgbox({
-      imgs:['img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg']
-    ,articles:['11111111111111111111111','222222222222222222222','3333333333333333333333','4444444444444444444','5555','666','777777','88888888']})
+      imgs:['img/big.png','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg','img/beijing.jpg']
+      ,articles:null
+    })
     $('.gallery-item').click(function(){
       imgbox.show(2)
+    })
+    $('#tel').click(function(){
+      console.log(1)
     })
   </script>
 </body>
