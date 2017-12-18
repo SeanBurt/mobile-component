@@ -1,0 +1,372 @@
+.face-main{
+    overflow:hidden;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+}
+.replyer-panel{
+  overflow: hidden;
+  font-size: 22px;
+  position: relative;
+  height: 43px;
+  z-index: 1;
+  display:-webkit-box;
+    background-color: #F9F9F9;
+  border-bottom:1px solid #DADADA;
+}
+.replyer-panel .face {
+    color: #888888;
+    padding: 0 10px;
+}
+.replyer-panel .face i {
+    font-size:24px;
+}
+#replyer{
+  z-index: 100;
+  display: block;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  top: 0;
+}
+.topic-bottom-bar .reply {
+  display: block;
+  padding-left: 4px;
+  height: 38px;
+  border-top: 1px solid #DADADA;
+ border-bottom: 1px solid #DADADA;
+  line-height: 38px;
+  background-color: #FFF;
+}
+#replyer .topic-bottom-bar {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+#replyer .topic-bottom-bar .reply {
+  height: 120px;
+  padding: 0;
+}
+#replyer .topic-bottom-bar .reply span {
+  margin: 5px 10px;
+  display: block;
+}
+#replyer .topic-bottom-bar .reply span b {
+  color: #328CE9;
+}
+#replyer .topic-bottom-bar .reply .replyInput {
+   border: none;
+  display: block;
+  width: 100%;
+  height: 65px;
+  margin: 5px 0;
+  padding: 2px 2px 2px 10px;
+  box-sizing: border-box;
+}
+#replyer .topic-bottom-bar .ctrlBar {
+  margin: 5px 0 0;
+  overflow: hidden;
+}
+#replyer .topic-bottom-bar .ctrlBar .btn {
+  height: 40px;
+  width: 90px;
+  display: inline-block;
+  line-height: 40px;
+  text-align:center;
+  color:#000;
+}
+#replyer .topic-bottom-bar .ctrlBar .submit {
+    color: #fff;
+  background-color: #5DC1D0;
+}
+
+#faceMainBox {
+    display: -webkit-box;
+    transform: translate3d(0%, 0px, 0px);
+    -webkit-transition:all 0.5s;
+}
+#navTabBox {  
+  margin: 0 auto;
+  height: 10px;
+  line-height: 8px;
+  text-align: center;
+}
+#navTabBox>li {
+    display: inline-block;
+    margin: 2px 6px;
+    width: 12px;
+    height: 6px;
+    line-height: 0;
+    text-align: center;
+    color: transparent;
+    background: #9E9E9E;
+    border-radius: 6px;
+}
+#navTabBox>li.current{background-color: #ff8200;}
+.replyer-panel .emoji{padding:0 10px;}
+.replyer-panel .emoji>i{font-size:30px;}
+.content-tab-face{width: 100%;}
+.face-main{display:none;}
+.face.face_1 {
+  background-image: url(../img/face/face-1.png);
+}
+.face.face_2 {
+  background-image: url(../img/face/face-2.png);
+}
+.face.face_3 {
+  background-image: url(../img/face/face-3.png);
+}
+.face.face_4 {
+  background-image: url(../img/face/face-4.png);
+}
+.face {
+   float: left;
+    margin: 10px 0;
+    width: 14.28%;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: 50px auto;
+    box-sizing: border-box;
+}
+.face.icon_0 {
+    background-position: 50% 0
+}
+
+.face.icon_1 {
+    background-position: 50% -50px
+}
+
+.face.icon_2 {
+    background-position: 50% -150px
+}
+
+.face.icon_3 {
+    background-position: 50% -200px
+}
+
+.face.icon_4 {
+    background-position: 50% -250px
+}
+
+.face.icon_5 {
+    background-position: 50% -300px
+}
+
+.face.icon_6 {
+    background-position: 50% -350px
+}
+
+.face.icon_7 {
+    background-position: 50% -400px
+}
+
+.face.icon_8 {
+    background-position: 50% -450px
+}
+
+.face.icon_9 {
+    background-position: 50% -500px
+}
+
+.face.icon_10 {
+    background-position: 50% -550px
+}
+
+.face.icon_11 {
+    background-position: 50% -600px
+}
+
+.face.icon_12 {
+    background-position: 50% -650px
+}
+
+.face.icon_13 {
+    background-position: 50% -700px
+}
+
+.face.icon_14 {
+    background-position: 50% -750px
+}
+
+.face.icon_15 {
+    background-position: 50% -800px
+}
+
+.face.icon_16 {
+    background-position: 50% -850px
+}
+
+.face.icon_17 {
+    background-position: 50% -900px
+}
+
+.face.icon_18 {
+    background-position: 50% -950px
+}
+
+.face.icon_19 {
+    background-position: 50% -1000px
+}
+
+.face.icon_20 {
+    background-position: 50% -1050px
+}
+
+.face.icon_21 {
+    background-position: 50% -1100px
+}
+
+.face.icon_22 {
+    background-position: 50% -1150px
+}
+
+.face.icon_23 {
+    background-position: 50% -1200px
+}
+
+.face.icon_24 {
+    background-position: 50% -1250px
+}
+
+.face.icon_25 {
+    background-position: 50% -1300px
+}
+
+.face.icon_26 {
+    background-position: 50% -1350px
+}
+
+.face.icon_27 {
+    background-position: 50% -1400px
+}
+
+/*--编译后的样式--*/
+.replyer-emoji-box .face{overflow: hidden;
+  text-indent: -300px;
+  float: none;
+  display: inline-block;
+  margin: 0 2px;
+  width: 22px;
+  height: 22px;
+  vertical-align: top;
+  -webkit-background-size: 100% auto;
+  background-size: 100% auto;}
+.replyer-emoji-box .face.icon_0 {
+    background-position: 50% 0
+}
+
+.replyer-emoji-box .face.icon_1 {
+    background-position: 50% -22px
+}
+
+.replyer-emoji-box .face.icon_2 {
+    background-position: 50% -44px
+}
+
+.replyer-emoji-box .face.icon_3 {
+    background-position: 50% -66px
+}
+
+.replyer-emoji-box .face.icon_4 {
+    background-position: 50% -88px
+}
+
+.replyer-emoji-box .face.icon_5 {
+    background-position: 50% -110px
+}
+
+.replyer-emoji-box .face.icon_6 {
+    background-position: 50% -132px
+}
+
+.replyer-emoji-box .face.icon_7 {
+    background-position: 50% -154px
+}
+
+.replyer-emoji-box .face.icon_8 {
+    background-position: 50% -176px
+}
+
+.replyer-emoji-box .face.icon_9 {
+    background-position: 50% -198px
+}
+
+.replyer-emoji-box .face.icon_10 {
+    background-position: 50% -220px
+}
+
+.replyer-emoji-box .face.icon_11 {
+    background-position: 50% -242px
+}
+
+.replyer-emoji-box .face.icon_12 {
+    background-position: 50% -264px
+}
+
+.replyer-emoji-box .face.icon_13 {
+    background-position: 50% -286px
+}
+
+.replyer-emoji-box .face.icon_14 {
+    background-position: 50% -308px
+}
+
+.replyer-emoji-box .face.icon_15 {
+    background-position: 50% -330px
+}
+
+.replyer-emoji-box .face.icon_16 {
+    background-position: 50% -352px
+}
+
+.replyer-emoji-box .face.icon_17 {
+    background-position: 50% -374px
+}
+
+.replyer-emoji-box .face.icon_18 {
+    background-position: 50% -396px
+}
+
+.replyer-emoji-box .face.icon_19 {
+    background-position: 50% -418px
+}
+
+.replyer-emoji-box .face.icon_20 {
+    background-position: 50% -440px
+}
+
+.replyer-emoji-box .face.icon_21 {
+    background-position: 50% -462px
+}
+
+.replyer-emoji-box .face.icon_22 {
+    background-position: 50% -484px
+}
+
+.replyer-emoji-box .face.icon_23 {
+    background-position: 50% -506px
+}
+
+.replyer-emoji-box .face.icon_24 {
+    background-position: 50% -528px
+}
+
+.replyer-emoji-box .face.icon_25 {
+    background-position: 50% -550px
+}
+
+.replyer-emoji-box .face.icon_26 {
+    background-position: 50% -572px
+}
+
+.replyer-emoji-box .face.icon_27 {
+    background-position: 50% -594px
+}
