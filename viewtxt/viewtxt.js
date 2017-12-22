@@ -1,6 +1,6 @@
 ;(function($){
     var defaults = {
-        len:120
+        len:170
     };
     function ViewTxt(opts,ele) {
         this.opts = opts || {};
@@ -38,7 +38,7 @@
                             _self.$ele[i].firstElementChild.innerHTML = _self.contents[i];
                         }else{
                             _self.$ele[i].lastElementChild.innerHTML = "... 全文";
-                            _self.$ele[i].firstElementChild.innerHTML = _self.$ele[i].innerText.substring(0,_self.opts.len);
+                            _self.$ele[i].firstElementChild.innerHTML = _self.$ele[i].firstElementChild.innerHTML.substring(0,_self.opts.len);
                         }
                     }
                 })(i)
@@ -50,4 +50,3 @@
         return new ViewTxt(opts,$(this));
     }
 })(Zepto);
-
