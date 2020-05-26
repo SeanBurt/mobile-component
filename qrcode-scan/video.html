@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>二维码扫描</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #scanner {
+      font-family: 'Avenir', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+    }
+
+    .model {
+      box-sizing: border-box;
+      z-index: 88;
+      position: relative;
+      margin-top: 100px;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .scanner-view {
+      z-index: 89;
+      position: relative;
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(255, 255, 255, .3);
+    }
+
+    .scanner-line {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: #49FF46;
+      border-radius: 20px;
+      z-index: 90;
+      animation: myScan 1s infinite alternate;
+    }
+
+    @keyframes myScan {
+      from {
+        top: 0;
+      }
+
+      to {
+        top: 200px;
+      }
+    }
+
+    .scanner-view-arrow {
+      position: absolute;
+      width: 5vw;
+      height: 5vw;
+      border: 2px solid #09bb07;
+    }
+
+    .scanner-view-arrow.arrow1 {
+      top: -1px;
+      left: 0px;
+      z-index: 99;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .scanner-view-arrow.arrow2 {
+      top: -1px;
+      right: 0px;
+      z-index: 99;
+      border-left: none;
+      border-bottom: none;
+    }
+
+    .scanner-view-arrow.arrow3 {
+      bottom: -1px;
+      left: 0px;
+      z-index: 99;
+      border-right: none;
+      border-top: none;
+    }
+
+    .scanner-view-arrow.arrow4 {
+      bottom: -1px;
+      right: 0px;
+      z-index: 99;
+      border-left: none;
+      border-top: none;
+    }
+
+    .video-view {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      top: 0px;
+      left: calc(50% - 100px);
+      z-index: 80;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="scanner">
+    <div class="model">
+      <div class="scanner-view">
+        <div class="scanner-view-arrow arrow1"></div>
+        <div class="scanner-view-arrow arrow2"></div>
+        <div class="scanner-view-arrow arrow3"></div>
+        <div class="scanner-view-arrow arrow4"></div>
+        <div class="scanner-line"></div>
+      </div>
+      <video class="video-view" autoplay playsinline="true"></video>
+    </div>
+    <canvas width="478" height="850" style="display: none"></canvas>
+  </div>
+  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+  <script src="lib/reqrcode.js"></script>
+  <script>
+    eruda.init();
+    function play(stream) {
+      const video = document.querySelector('.video-view')
+      video.srcObject = stream;
+      video.play();
+      video.oncanplay = function () {
+        console.log('摄像头分辨率', video.videoWidth, video.videoHeight);
+        screenShot()
+      };
+    }
+    function screenShot() {
+      let $canvas = document.querySelector('canvas');
+      let $video = document.querySelector('.video-view');
+      let ctx = $canvas.getContext('2d');
+      ctx.drawImage($video, 0, 0, $video.videoWidth, $video.videoHeight, 0, 0, 478, 850);
+      let base64 = $canvas.toDataURL('images/png');
+      decodeQrcode(base64)
+    }
+    function decodeQrcode(base64) {
+      qrcode.decode(base64)
+      qrcode.callback = function (imgMsg) {
+        if (imgMsg == 'error decoding QR Code') {
+          screenShot()
+        } else {
+          alert(imgMsg)
+        }
+      }
+    }
+    // ES2020语法，兼容性有问题
+    // navigator.getUserMedia = navigator?.getUserMedia ?? navigator?.mediaDevices?.getUserMedia
+    const option = {
+      height: 800,
+      facingMode: {
+        // 强制后置摄像头
+        exact: "environment"
+      }
+    }
+    navigator.getUserMedia && navigator.getUserMedia({
+      video: option
+    }, stream => play(stream), err => console.error(err))
+  </script>
+</body>
+
+</html>
